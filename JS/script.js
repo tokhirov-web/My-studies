@@ -1,154 +1,142 @@
+for (let i = -6; i < 0; i++) {
+    for (let k = 1; k < -i; k++) {
+        document.write('*')
+    }
+    document.write(`<br>`)
+};
 
+let arr = [
+    {
+        id: Math.random(),
+        name: 'Timur',
+        info: {
+            school: '235',
+            faculity: 'SMM'
+        },
+    },
+    {
+        id: Math.random(),
+        name: 'Imran',
+        info: {
+            school: 'ne izvestno',
+            faculity: 'programming'
+        },
+    },
+    {
+        id: Math.random(),
+        name: 'Aminjon',
+        info: {
+            school: '444',
+            faculity: 'Dizayn'
+        },
+    },
+    {
+        id: Math.random(),
+        name: 'Maxmud',
+        info: {
+            school: '777',
+            faculity: '3dsmax'
+        },
+    },
+    {
+        id: Math.random(),
+        name: 'Muxammad',
+        info: {
+            school: '5555',
+            faculity: 'Backend'
+        },
+    },
+    {
+        id: Math.random(),
+        name: 'Timur',
+        info: {
+            school: '235',
+            faculity: 'SMM'
+        },
+    },
+    {
+        id: Math.random(),
+        name: 'Imran',
+        info: {
+            school: 'ne izvestno',
+            faculity: 'programming'
+        },
+    },
+    {
+        id: Math.random(),
+        name: 'Aminjon',
+        info: {
+            school: '444',
+            faculity: 'Dizayn'
+        },
+    },
+    {
+        id: Math.random(),
+        name: 'Maxmud',
+        info: {
+            school: '777',
+            faculity: '3dsmax'
+        },
+    },
+    {
+        id: Math.random(),
+        name: 'Maxmud',
+        info: {
+            school: '777',
+            faculity: '3dsmax'
+        },
+    },
+    {
+        id: Math.random(),
+        name: 'Muxammad',
+        info: {
+            school: '5555',
+            faculity: 'Backend'
+        },
+    },
+]
 
-//  процент умножить на сумму и разделить на 100
-
-let arr = [{
-    id: 1,
-    name: "AZIZs_KABLUK",
-    budget: 500000,
-    tax: 12,
-    expensesPerYear: [{
-        for: "design",
-        total: 60000,
+let categories = [
+    {
+        course: ' SMM',
+        count: 0
     },
     {
-        for: "material",
-        total: 70000,
+        course: 'PROGRAMMING',
+        count: 0
     },
     {
-        for: "place",
-        total: 120000,
-    },
-    ],
-},
-{
-    id: 2,
-    name: "KAMERON_CINEMA",
-    budget: 600000,
-    tax: 12,
-    expensesPerYear: [{
-        for: "camera",
-        total: 90000,
+        course: '     3DSMAX',
+        count: 0
     },
     {
-        for: "actors",
-        total: 140000,
+        course: ' DIZAYN',
+        count: 0
     },
     {
-        for: "electricity",
-        total: 50000,
+        course: '   BACKEND',
+        count: 0
     },
-    ],
-},
-{
-    id: 3,
-    name: "ISKANDARs_ZOO",
-    budget: 450000,
-    tax: 12,
-    expensesPerYear: [{
-        for: "animals",
-        total: 100000,
-    },
-    {
-        for: "cloune",
-        total: 15000,
-    },
-    {
-        for: "food",
-        total: 70000,
-    },
-    ],
-},
-{
-    id: 4,
-    name: "AMINs_SOOOO",
-    budget: 800000,
-    tax: 12,
-    expensesPerYear: [{
-        for: "house",
-        total: 200000,
-    },
-    {
-        for: "cars",
-        total: 150000,
-    },
-    {
-        for: "family",
-        total: 300000,
-    },
-    {
-        for: "girls",
-        total: 90000,
-    },
-    ],
-},
-{
-    id: 5,
-    name: "new comp",
-    budget: 1000000,
-    tax: 12,
-    expensesPerYear: [{
-        for: "house",
-        total: 200000,
-    },
-    {
-        for: "cars",
-        total: 150000,
-    },
-    {
-        for: "family",
-        total: 300000,
-    },
-    {
-        for: "girls",
-        total: 90000,
-    },
-    ],
-},
 ];
 
 
-for (let item of arr) {
-    let money = item['budget']
-    let procent = item['tax']
-
-    let sum = procent * money / 100
-
-    item.totalTaxAmount = sum
-
-    item.BudgetPerMonth = Math.round(item.budget / 12)
-
-    // console.log(sum, item.name);
-
-    item.ExpensesPerMonth = Math.round(item.expensesPerYear.reduce((a, b) => {
-        return a + b.total
-    }, 0) / 12)
-
-    item.expensesPerMonthInPercent = Math.round(item.ExpensesPerMonth / item.BudgetPerMonth * 100)
-};
 
 
+for (let student of arr) {
+    student.info.faculity = student.info.faculity.toLocaleUpperCase()
 
-// let max = arr.reduce((a, b) => {
-//     if (a.totalTax > b.totalTax) {
-//         return a
-//     } else {
-//         return b
-//     }
-// });
+    let major = student.info['faculity']
 
-// let min = arr.reduce((a, b) => {
-//     if (a.totalTax < b.totalTax) {
-//         return a
-//     } else {
-//         return b
-//     }
-// });
+    for (let item of categories) {
+
+        item.course = item.course.trim()
+
+        if (major === item.course) {
+            item.count++
+        }
+    }
+}
 
 
-
-// console.log(max);
-
-// console.log(min);
-
-console.log(arr);
+// console.log(arr)
+console.table(categories);
